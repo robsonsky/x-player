@@ -1,4 +1,4 @@
-package me.robsonsky.x_player.MediaPlayer
+package me.robsonsky.x_player.mediaPlayer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,7 @@ class MediaPlayerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video_player)
+        setContentView(R.layout.activity_media_player)
         addFragmentTo(R.id.main_container, createFragment())
     }
 

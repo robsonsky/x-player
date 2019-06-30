@@ -1,4 +1,4 @@
-package me.robsonsky.x_player.MediaPlayer
+package me.robsonsky.x_player.mediaPlayer
 
 interface MediaPlayerContract {
 

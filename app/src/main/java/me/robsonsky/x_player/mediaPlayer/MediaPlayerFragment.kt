@@ -1,4 +1,4 @@
-package me.robsonsky.x_player.MediaPlayer
+package me.robsonsky.x_player.mediaPlayer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,7 +25,7 @@ class MediaPlayerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view= inflater.inflate(R.layout.fragment_video_player, container, false)
+        val view= inflater.inflate(R.layout.fragment_media_player, container, false)
         playerView = view.findViewById(R.id.ep_player_view)
         playerView.player = viewModel.exoPlayer
         return view
