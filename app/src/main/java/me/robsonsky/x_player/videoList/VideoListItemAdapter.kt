@@ -4,8 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import me.robsonsky.x_player.AdapterItemsContract
 import me.robsonsky.x_player.data.Video
 import me.robsonsky.x_player.R
@@ -36,9 +38,15 @@ class VideoListItemAdapter(var videoList: List<Video>): RecyclerView.Adapter<Vid
     class ViewHolder(val binding: AdapterVideoListItemBinding): RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         fun bind(video: Video) {
+            setImage(video.thumb)
             binding.video = video
             binding.root.setOnClickListener(this)
             binding.executePendingBindings()
+        }
+
+        fun setImage(url: String) {
+            val imageView = binding.root.findViewById<ImageView>(R.id.video_image)
+            Picasso.get().load(url).into(imageView)
         }
 
         override fun onClick(v: View?) {
