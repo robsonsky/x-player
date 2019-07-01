@@ -36,7 +36,4 @@ class VideoDetailActivity : AppCompatActivity() {
         return VideoDetailFragment.newInstance(createViewModel())
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }
