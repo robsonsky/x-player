@@ -15,7 +15,9 @@
                 android:name=".videoDetail.VideoDetailActivity"
                 android:theme="@style/AppTheme.NoActionBar"/>
 
-        <activity android:name=".mediaPlayer.MediaPlayerActivity"/>
+        <activity
+                android:name=".mediaPlayer.MediaPlayerActivity"
+                android:screenOrientation="landscape"/>
 
         <activity android:name=".videoList.VideoListActivity">
             <intent-filter>

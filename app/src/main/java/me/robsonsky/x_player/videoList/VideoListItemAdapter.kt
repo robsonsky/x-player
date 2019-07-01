@@ -46,7 +46,11 @@ class VideoListItemAdapter(var videoList: List<Video>): RecyclerView.Adapter<Vid
 
         fun setImage(url: String) {
             val imageView = binding.root.findViewById<ImageView>(R.id.video_image)
-            Picasso.get().load(url).into(imageView)
+            Picasso
+                .get()
+                .load(url)
+                .placeholder(R.drawable.material_flat)
+                .into(imageView)
         }
 
         override fun onClick(v: View?) {

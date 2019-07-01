@@ -1,6 +1,6 @@
 package me.robsonsky.x_player.mediaPlayer
 
 interface MediaPlayerContract {
-
-    fun play(url: String)
+    fun play()
+    fun release()
 }

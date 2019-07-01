@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import me.robsonsky.x_player.R
+import me.robsonsky.x_player.data.Video
 import me.robsonsky.x_player.extensions.addFragmentTo
 
 class MediaPlayerActivity : AppCompatActivity() {
@@ -20,7 +21,17 @@ class MediaPlayerActivity : AppCompatActivity() {
     }
 
     fun createViewModel(): MediaPlayerViewModel {
-        return MediaPlayerViewModel(this, createPlayer())
+
+        var video = Video()
+
+        intent?.also { intent ->
+
+            intent.getParcelableExtra<Video>("video")?.also { extra ->
+                video = extra
+            }
+        }
+
+        return MediaPlayerViewModel(this, createPlayer(), video)
     }
 
     fun createPlayer(): SimpleExoPlayer {

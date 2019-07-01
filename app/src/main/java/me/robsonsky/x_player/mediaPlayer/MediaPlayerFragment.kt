@@ -33,7 +33,12 @@ class MediaPlayerFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.play("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        viewModel.play()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.release()
     }
 
 }

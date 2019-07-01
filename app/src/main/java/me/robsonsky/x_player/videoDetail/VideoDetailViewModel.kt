@@ -1,5 +1,5 @@
 package me.robsonsky.x_player.videoDetail
 
-class VideoDetailViewModel() {
+import me.robsonsky.x_player.data.Video
 
-}
+class VideoDetailViewModel(val video: Video) {}
