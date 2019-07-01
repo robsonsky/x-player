@@ -12,11 +12,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.databinding.DataBindingUtil
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_video_detail.*
 
 import me.robsonsky.x_player.R
 import me.robsonsky.x_player.databinding.FragmentVideoDetailBinding
+import me.robsonsky.x_player.login.LoginActivity
 import me.robsonsky.x_player.mediaPlayer.MediaPlayerActivity
 import me.robsonsky.x_player.videoList.VideoListViewModel
 
@@ -53,6 +55,17 @@ class VideoDetailFragment: Fragment(), View.OnClickListener {
         play_button.setOnClickListener(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        if(viewModel.shouldPlay && isAuthenticated()) {
+
+            activity?.also { activity ->
+                playVideo(activity)
+            }
+        }
+    }
+
     private fun setBackButton(context: Context) {
 
         val icon = ContextCompat
@@ -73,14 +86,35 @@ class VideoDetailFragment: Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         v?.also { view ->
-
-            val context = view.context
-
-            val intent = Intent(context, MediaPlayerActivity::class.java)
-            intent.putExtra("video", viewModel.video)
-
-            context.startActivity(intent)
+            checkUser(view.context)
         }
+    }
+
+    private fun checkUser(context: Context) {
+        if(isAuthenticated()) {
+            playVideo(context)
+        } else {
+            requestLogin(context)
+        }
+    }
+
+    private fun playVideo(context: Context) {
+
+        viewModel.shouldPlay = false
+
+        val intent = Intent(context, MediaPlayerActivity::class.java)
+        intent.putExtra("video", viewModel.video)
+
+        context.startActivity(intent)
+    }
+
+    private fun requestLogin(context: Context) {
+        viewModel.shouldPlay = true
+        context.startActivity(Intent(context, LoginActivity::class.java))
+    }
+
+    private fun isAuthenticated(): Boolean {
+        return FirebaseAuth.getInstance().currentUser != null
     }
 
 }

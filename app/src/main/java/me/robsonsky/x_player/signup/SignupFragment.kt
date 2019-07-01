@@ -59,7 +59,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
 
     fun signupSuccess(msg: String) {
         longToast(msg)
-//        activity?.onBackPressed()
+        activity?.finish()
     }
 
     fun signupFailure(errorMsg: String) {

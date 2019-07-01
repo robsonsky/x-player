@@ -13,13 +13,8 @@
             android:theme="@style/AppTheme">
         <activity android:name=".signup.SignupActivity"/>
 
-        <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        <activity android:name=".login.LoginActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
         <activity
                 android:name=".videoDetail.VideoDetailActivity"
                 android:theme="@style/AppTheme.NoActionBar"/>
@@ -27,7 +22,11 @@
                 android:name=".mediaPlayer.MediaPlayerActivity"
                 android:screenOrientation="landscape"/>
         <activity android:name=".videoList.VideoListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

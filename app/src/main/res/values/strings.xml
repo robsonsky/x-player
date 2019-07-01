@@ -10,4 +10,5 @@
     <string name="empty_edit_text_error_msg">Field can\'t be empty.</string>
     <string name="submit">Submit</string>
     <string name="success">Success!</string>
+    <string name="signup">Signup</string>
 </resources>
