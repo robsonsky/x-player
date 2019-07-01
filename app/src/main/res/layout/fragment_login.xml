@@ -12,9 +12,19 @@
     </data>
 
     <LinearLayout
+            android:padding="@dimen/spacing_1x"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <TextView
+                android:textColor="@color/colorBlack"
+                android:text="Please, login to enjoy the video!"
+                android:padding="@dimen/spacing_1x"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
